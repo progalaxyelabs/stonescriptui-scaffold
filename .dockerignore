@@ -1,0 +1,17 @@
+node_modules/
+dist/
+build/
+.vite/
+src/generated/
+.git/
+.gitignore
+.claude/
+*.log
+.env
+.env.*
+.DS_Store
+Thumbs.db
+coverage/
+*.tsbuildinfo
+.idea/
+.vscode/

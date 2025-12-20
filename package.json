@@ -1,0 +1,21 @@
+{
+  "name": "my-stonescript-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "StoneScriptUI application",
+  "scripts": {
+    "compile": "htms compile src/app.htms -o src/generated/",
+    "dev": "npm run compile && vite",
+    "build": "npm run compile && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@progalaxyelabs/htms-cli": "^0.3.0",
+    "@progalaxyelabs/htms-compiler": "^0.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10"
+  }
+}
