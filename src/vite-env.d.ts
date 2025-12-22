@@ -1,5 +1,18 @@
 /// <reference types="vite/client" />
 
+declare module '@progalaxyelabs/htms-cli/vite' {
+    import { Plugin } from 'vite';
+
+    interface HtmsPluginOptions {
+        include?: RegExp;
+        outputDir?: string;
+        watch?: boolean;
+    }
+
+    export function htmsPlugin(options?: HtmsPluginOptions): Plugin;
+    export default htmsPlugin;
+}
+
 interface ImportMetaEnv {
     // API Configuration
     readonly VITE_API_URL: string;

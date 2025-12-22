@@ -1,8 +1,13 @@
 import { defineConfig } from 'vite';
-// TODO: import { htmsPlugin } from '@progalaxyelabs/htms-compiler/vite';
+import { htmsPlugin } from '@progalaxyelabs/htms-cli/vite';
 
 export default defineConfig({
-  // TODO: plugins: [htmsPlugin()],
+  plugins: [
+    htmsPlugin({
+      include: /\.htms$/,
+      outputDir: 'src/generated'
+    })
+  ],
   server: {
     port: 3000,
     host: '127.0.0.1',
