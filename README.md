@@ -16,7 +16,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ## What is HTMS?
 
@@ -684,6 +684,7 @@ If you see TypeScript errors about the Vite plugin, make sure `src/vite-env.d.ts
 
 ## Documentation
 
+- [CHANGELOG](CHANGELOG.md) - Release history and version changes
 - [HTMS GitHub](https://github.com/progalaxyelabs/htms)
 - [StoneScriptUI](https://github.com/progalaxyelabs/stonescriptui)
 - [Report Issues](https://github.com/progalaxyelabs/stonescriptui/issues)
