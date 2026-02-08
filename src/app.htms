@@ -1,9 +1,86 @@
-// StoneScriptUI Application
-// Edit this file and run: npm run build
+// Todo App with localStorage
+// Demonstrates StoneScriptUI features
 
 page home "/" {
-  main [class: "container"] {
-    h1 {{ Welcome to StoneScriptUI }}
-    p {{ Edit src/app.htms to get started. }}
+  div [class: "container"] {
+    h1 {
+      {{ My Todos }}
+    }
+
+    div [class: "add-todo"] {
+      input [
+        type: "text",
+        id: "todoInput",
+        placeholder: "Enter a new todo...",
+        bind: ctx.newTodoTitle
+      ]
+
+      button [
+        data-action: "addTodo",
+        data-event: "click",
+        class: "add-btn"
+      ] {
+        {{ Add Todo }}
+      }
+    }
+
+    div [class: "stats"] {
+      p {
+        {{ Total: ${ctx.todos.length} | Completed: ${ctx.completedCount} }}
+      }
+    }
+
+    div [class: "todo-list", id: "todoList"] {
+      @if ctx.todos.length == 0 {
+        p [class: "empty-state"] {
+          {{ No todos yet. Add one above! }}
+        }
+      } @else {
+        @each ctx.todos as todo, index {
+          div [class: todo.completed ? "todo-item completed" : "todo-item"] {
+            input [
+              type: "checkbox",
+              checked: todo.completed,
+              data-action: "toggleTodo",
+              data-event: "change",
+              data-index: index
+            ]
+
+            span [class: "todo-text"] {
+              {{ ${todo.title} }}
+            }
+
+            button [
+              class: "delete-btn",
+              data-action: "deleteTodo",
+              data-event: "click",
+              data-index: index
+            ] {
+              {{ Delete }}
+            }
+          }
+        }
+      }
+    }
+
+    @if ctx.todos.length > 0 {
+      div [class: "actions"] {
+        button [
+          data-action: "clearCompleted",
+          data-event: "click",
+          class: "secondary-btn"
+        ] {
+          {{ Clear Completed }}
+        }
+
+        button [
+          data-action: "clearAll",
+          data-event: "click",
+          class: "danger-btn"
+        ] {
+          {{ Clear All }}
+        }
+      }
+    }
   }
 }
